@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LumememmAppLaus.MainPage"
+             Title="Lumememm">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="allPaintBtn" Text="Перекрасить" Order="Primary" Priority="0"
+                     Clicked="allPaintBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout x:Name="layoutBackground" BackgroundColor="Orange">
+        <StackLayout Padding="0,20,0,0">
+            <Frame x:Name="firstBall" 
+                   VerticalOptions="FillAndExpand" HorizontalOptions="Center"
+                   WidthRequest="100"
+                   HeightRequest="100"
+                   CornerRadius="90"/>
+            <Frame x:Name="secondBall" 
+                   VerticalOptions="FillAndExpand" HorizontalOptions="Center"
+                   WidthRequest="130"
+                   HeightRequest="130"
+                   CornerRadius="95"/>
+            <Frame x:Name="thirdBall" 
+                   VerticalOptions="FillAndExpand" HorizontalOptions="Center"
+                   WidthRequest="160"
+                   HeightRequest="160"
+                   CornerRadius="100"/>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="rndClrButton"
+                        Text="Раскрасить случайно" HorizontalOptions="FillAndExpand"
+                        Clicked="rndClrButton_Clicked"/>
+                <Button x:Name="hideShowButton"
+                        Text="Спрятать"  HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Margin="10" Orientation="Horizontal" >
+                    <Label Text="R" />
+                    <Slider x:Name="rSlider" 
+                            Minimum="0" 
+                            Maximum="255"
+                            Value="0"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Red"/>
+                </StackLayout>
+                <StackLayout Margin="10" Orientation="Horizontal">
+                    <Label Text="G"/>
+                    <Slider x:Name="gSlider" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            Value="0"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Green"/>
+                </StackLayout>
+                <StackLayout Margin="10" Orientation="Horizontal">
+                    <Label Text="B" VerticalOptions="EndAndExpand"/>
+                    <Slider x:Name="bSlider" 
+                            Minimum="0" 
+                            Maximum="255" 
+                            Value="0"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Blue"/>
+                  </StackLayout>
+            </StackLayout>
+            
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
