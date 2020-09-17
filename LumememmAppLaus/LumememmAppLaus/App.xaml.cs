@@ -11,8 +11,8 @@ namespace LumememmAppLaus
             InitializeComponent();
 
             
-            MainPage = new MainPage();
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new AbsolutePage();
+            // MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
