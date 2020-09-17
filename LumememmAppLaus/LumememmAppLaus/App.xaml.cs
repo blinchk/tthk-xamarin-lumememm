@@ -8,10 +8,10 @@ namespace LumememmAppLaus
     {
         public App()
         {
+            Device.SetFlags(new[] { "Shapes_Experimental", "Brush_Experimental" });
             InitializeComponent();
-
-            
             MainPage = new AbsolutePage();
+            // MainPage = new MainPage();
             // MainPage = new NavigationPage(new MainPage());
         }
 
