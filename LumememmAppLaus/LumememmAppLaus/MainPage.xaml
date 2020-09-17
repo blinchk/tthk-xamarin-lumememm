@@ -4,42 +4,42 @@
              x:Class="LumememmAppLaus.MainPage"
              Title="Lumememm">  
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="allPaintBtn" Text="Перекрасить" Order="Primary" Priority="0"
+        <ToolbarItem x:Name="AllPaintBtn" Text="Перекрасить" Order="Primary" Priority="0"
                      Clicked="allPaintBtn_Clicked"/>
-        <ToolbarItem x:Name="meltSnowman" Text="Растопить" Order="Primary" Priority="1"
+        <ToolbarItem x:Name="MeltSnowman" Text="Растопить" Order="Primary" Priority="1"
                      Clicked="meltSnowman_Clicked"/>
     </ContentPage.ToolbarItems>
-    <StackLayout x:Name="layoutBackground" BackgroundColor="Orange">
+    <StackLayout x:Name="LayoutBackground" BackgroundColor="Orange">
         <StackLayout Padding="0,20,0,0">
-            <Frame x:Name="firstBall" 
+            <Frame x:Name="FirstBall" 
                    VerticalOptions="FillAndExpand" HorizontalOptions="Center"
                    WidthRequest="100"
                    HeightRequest="100"
                    CornerRadius="90"/>
-            <Frame x:Name="secondBall" 
+            <Frame x:Name="SecondBall" 
                    VerticalOptions="FillAndExpand" HorizontalOptions="Center"
                    WidthRequest="130"
                    HeightRequest="130"
                    CornerRadius="95"/>
-            <Frame x:Name="thirdBall" 
+            <Frame x:Name="ThirdBall" 
                    VerticalOptions="FillAndExpand" HorizontalOptions="Center"
                    WidthRequest="160"
                    HeightRequest="160"
                    CornerRadius="100"/>
             <StackLayout Orientation="Horizontal">
-                <Button x:Name="rndClrButton"
+                <Button x:Name="RndClrButton"
                         Text="Раскрасить случайно" HorizontalOptions="FillAndExpand"
                         Clicked="rndClrButton_Clicked"/>
-                <Button x:Name="hideShowButton"
+                <Button x:Name="HideShowButton"
                         Text="Спрятать"  HorizontalOptions="FillAndExpand"
                         Clicked="hideShowButton_Clicked"/>
             </StackLayout>
             <StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal" >
-                    <Label x:Name="rText" 
+                    <Label x:Name="RText" 
                            Text="R: 255"
                            WidthRequest="43"/>
-                    <Slider x:Name="rSlider" 
+                    <Slider x:Name="RSlider" 
                             Minimum="0"
                             Maximum="255"
                             Value="1"
@@ -48,10 +48,10 @@
                             ValueChanged="rSlider_ValueChanged"/>
                 </StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal">
-                    <Label x:Name="gText"
+                    <Label x:Name="GText"
                            Text="G: 255"
                            WidthRequest="43"/>
-                    <Slider x:Name="gSlider" 
+                    <Slider x:Name="GSlider" 
                             Minimum="0" 
                             Maximum="255" 
                             Value="1"
@@ -60,10 +60,10 @@
                             ValueChanged="gSlider_ValueChanged"/>
                 </StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal">
-                    <Label x:Name="bText"
+                    <Label x:Name="BText"
                            Text="B: 255"
                            WidthRequest="43"/>
-                    <Slider x:Name="bSlider" 
+                    <Slider x:Name="BSlider" 
                             Minimum="0" 
                             Maximum="255" 
                             Value="1"

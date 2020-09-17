@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LumememmAppLaus
+﻿namespace LumememmAppLaus
 {
     public interface IMessage
     {
