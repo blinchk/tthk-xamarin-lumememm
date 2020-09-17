@@ -14,6 +14,7 @@ namespace LumememmAppLaus
     public partial class MainPage : ContentPage
     {
         private Frame[] balls;
+        public int[] colors = new int[3];
         public MainPage()
         {
             InitializeComponent();
@@ -24,14 +25,15 @@ namespace LumememmAppLaus
             {
                 x.GestureRecognizers.Add(tap);
             }
+            GetRandomColor();
+            ChangeColorsValues();
         }
 
         private void Tap_Tapped(object sender, EventArgs e)
         {
             Frame frame = sender as Frame;
             if (frame == firstBall || frame == secondBall || frame == thirdBall) {
-                if (firstBall.Opacity != 0) { ShowSnowman(); hideShowButton.Text = "Спрятать"; }
-                else { HideSnowman(); hideShowButton.Text = "Показать"; }
+                frame.BackgroundColor = GetColorFromSliders();
             }
         }
 
@@ -52,12 +54,15 @@ namespace LumememmAppLaus
         private Color GetRandomColor() // получение случайного света
         {
             Random random = new Random();
-            return Color.FromRgb(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255));
+            colors[0] = random.Next(0, 256);
+            colors[1] = random.Next(0, 256);
+            colors[2] = random.Next(0, 256);
+            return Color.FromRgb(colors[0], colors[1], colors[2]);
         }
 
         private Color GetColorFromSliders()
         {
-            return Color.FromRgb(rSlider.Value, gSlider.Value, bSlider.Value);
+            return Color.FromRgb(colors[0], colors[1], colors[2]);
         }
 
         private void rndClrButton_Clicked(object sender, EventArgs e)
@@ -66,14 +71,80 @@ namespace LumememmAppLaus
             {
                 x.BackgroundColor = GetRandomColor();
             }
+            ChangeColorsValues();
         }
 
-        private void allPaintBtn_Clicked(object sender, EventArgs e)
+        private async void allPaintBtn_Clicked(object sender, EventArgs e)
         {
-            foreach (Frame x in balls)
+            bool answer = await DisplayAlert("Перекрасить",
+                "Изменить цвета снеговика в\nR: "
+                + colors[0].ToString() + " G: " + colors[1].ToString() + " B: " + colors[2].ToString() + "?",
+                "Да", "Нет");
+            if (answer)
             {
-                x.BackgroundColor = GetColorFromSliders();
+                foreach (Frame x in balls)
+                {
+                    x.BackgroundColor = GetColorFromSliders();
+                }
             }
+        }
+
+        private void ChangeColorsValues()
+        {
+            rText.Text = $"R: {colors[0]}";
+            rSlider.Value = colors[0];
+            gText.Text = $"G: {colors[1]}";
+            gSlider.Value = colors[1];
+            bText.Text = $"B: {colors[2]}";
+            bSlider.Value = colors[2];
+        }
+
+        private void rSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (e.NewValue > 0)
+            {
+                colors[0] = Convert.ToInt32(e.NewValue);
+            }
+            ChangeColorsValues();
+        }
+
+        private void gSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (e.NewValue > 0)
+            {
+                colors[1] = Convert.ToInt32(e.NewValue);
+            }
+            ChangeColorsValues();
+        }
+
+        private void bSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (e.NewValue > 0)
+            {
+                colors[2] = Convert.ToInt32(e.NewValue);
+            }
+            ChangeColorsValues();
+        }
+
+        private void hideShowButton_Clicked(object sender, EventArgs e)
+        {
+            if (firstBall.Opacity != 0) { HideSnowman(); hideShowButton.Text = "Показать"; }
+            else { ShowSnowman(); hideShowButton.Text = "Спрятать"; }
+        }
+
+        private async void meltSnowman_Clicked(object sender, EventArgs e)
+        {
+            await Task.Run(() => {
+                    for (int i = 0; i < 129; i++)
+                    {
+                        layoutBackground.BackgroundColor = Color.FromRgb(255, 128+i, i * 2);
+                        Thread.Sleep(10);
+                    }
+                HideSnowman();
+                Thread.Sleep(1000);
+                layoutBackground.BackgroundColor = Color.Orange;
+                ShowSnowman();
+            });
         }
     }
 }

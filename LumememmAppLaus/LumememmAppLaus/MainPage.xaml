@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LumememmAppLaus.MainPage"
-             Title="Lumememm">
+             Title="Lumememm">  
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="allPaintBtn" Text="Перекрасить" Order="Primary" Priority="0"
                      Clicked="allPaintBtn_Clicked"/>
+        <ToolbarItem x:Name="meltSnowman" Text="Растопить" Order="Primary" Priority="1"
+                     Clicked="meltSnowman_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout x:Name="layoutBackground" BackgroundColor="Orange">
         <StackLayout Padding="0,20,0,0">
@@ -30,35 +31,45 @@
                         Text="Раскрасить случайно" HorizontalOptions="FillAndExpand"
                         Clicked="rndClrButton_Clicked"/>
                 <Button x:Name="hideShowButton"
-                        Text="Спрятать"  HorizontalOptions="FillAndExpand"/>
+                        Text="Спрятать"  HorizontalOptions="FillAndExpand"
+                        Clicked="hideShowButton_Clicked"/>
             </StackLayout>
             <StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal" >
-                    <Label Text="R" />
+                    <Label x:Name="rText" 
+                           Text="R: 255"
+                           WidthRequest="43"/>
                     <Slider x:Name="rSlider" 
-                            Minimum="0" 
+                            Minimum="0"
                             Maximum="255"
-                            Value="0"
+                            Value="1"
                             HorizontalOptions="FillAndExpand"
-                            BackgroundColor="Red"/>
+                            BackgroundColor="Red"
+                            ValueChanged="rSlider_ValueChanged"/>
                 </StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal">
-                    <Label Text="G"/>
+                    <Label x:Name="gText"
+                           Text="G: 255"
+                           WidthRequest="43"/>
                     <Slider x:Name="gSlider" 
                             Minimum="0" 
                             Maximum="255" 
-                            Value="0"
+                            Value="1"
                             HorizontalOptions="FillAndExpand"
-                            BackgroundColor="Green"/>
+                            BackgroundColor="Green"
+                            ValueChanged="gSlider_ValueChanged"/>
                 </StackLayout>
                 <StackLayout Margin="10" Orientation="Horizontal">
-                    <Label Text="B" VerticalOptions="EndAndExpand"/>
+                    <Label x:Name="bText"
+                           Text="B: 255"
+                           WidthRequest="43"/>
                     <Slider x:Name="bSlider" 
                             Minimum="0" 
                             Maximum="255" 
-                            Value="0"
+                            Value="1"
                             HorizontalOptions="FillAndExpand"
-                            BackgroundColor="Blue"/>
+                            BackgroundColor="Blue"
+                            ValueChanged="bSlider_ValueChanged"/>
                   </StackLayout>
             </StackLayout>
             
