@@ -3,7 +3,7 @@ using Android.Widget;
 using Android.Support.Design.Widget;
 using Xamarin.Forms;
 
-[assembly: Xamarin.Forms.Dependency(typeof(LumememmAppLaus.Droid.MessagesAndroid))]
+[assembly: Dependency(typeof(LumememmAppLaus.Droid.MessagesAndroid))]
 namespace LumememmAppLaus.Droid
 {
     public class MessagesAndroid : IMessage

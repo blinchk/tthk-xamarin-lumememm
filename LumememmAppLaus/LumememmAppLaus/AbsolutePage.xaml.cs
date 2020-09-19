@@ -22,7 +22,7 @@ namespace LumememmAppLaus
                     for (int j = 1; j < 4; j++)
                     {
                         BoxView y = new BoxView { Color = Color.Black, CornerRadius = 10 };
-                        AbsoluteLayout.SetLayoutBounds(y, new Rectangle(0.5, (1 / j), 20, 20));
+                        AbsoluteLayout.SetLayoutBounds(y, new Rectangle(x: 0.5, y: 1 / j, width: 20, height: 20));
                         AbsoluteLayout.SetLayoutFlags(y, AbsoluteLayoutFlags.PositionProportional);
                         absoluteLayout.Children.Add(y);
                     }
