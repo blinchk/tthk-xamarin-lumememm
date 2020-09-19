@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace LumememmAppLaus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AbsolutePage : ContentPage
+    public partial class AbsolutePage
     {
         public AbsolutePage()
         {
@@ -28,9 +22,9 @@ namespace LumememmAppLaus
                     for (int j = 1; j < 4; j++)
                     {
                         BoxView y = new BoxView { Color = Color.Black, CornerRadius = 10 };
-                        AbsoluteLayout.SetLayoutBounds(y, new Rectangle(0.5, 1 / j, 20, 20));
+                        AbsoluteLayout.SetLayoutBounds(y, new Rectangle(0.5, (1 / j), 20, 20));
                         AbsoluteLayout.SetLayoutFlags(y, AbsoluteLayoutFlags.PositionProportional);
-                        absoluteLayout.Children.Add(x, y.Bounds, AbsoluteLayoutFlags.None);
+                        absoluteLayout.Children.Add(x, y.Bounds);
                     }
                 }
             }
