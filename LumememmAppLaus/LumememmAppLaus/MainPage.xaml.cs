@@ -81,8 +81,8 @@ namespace LumememmAppLaus
                 {
                     x.BackgroundColor = GetColorFromSliders();
                 }
+                DependencyService.Get<IMessage>().ShortAlert("Снеговик перекрашен.");
             }
-            DependencyService.Get<IMessage>().ShortAlert("Снеговик перекрашен.");
         }
 
         private void ChangeColorsValues()
