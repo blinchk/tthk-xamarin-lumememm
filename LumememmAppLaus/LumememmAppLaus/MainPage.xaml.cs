@@ -135,6 +135,7 @@ namespace LumememmAppLaus
 
         private async void meltSnowman_Clicked(object sender, EventArgs e)
         {
+            DependencyService.Get<IMessage>().ShortAlert("Начинаем топить снеговика.");
             await Task.Run(() => {
                     for (int i = 0; i < 129; i++)
                     {
@@ -146,6 +147,7 @@ namespace LumememmAppLaus
                 layoutBackground.BackgroundColor = Color.Orange;
                 ShowSnowman();
             });
+            DependencyService.Get<IMessage>().ShortAlert("Упс, снеговик растоплен.");
         }
     }
 }
